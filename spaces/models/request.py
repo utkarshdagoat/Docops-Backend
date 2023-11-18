@@ -11,7 +11,7 @@ from notifications.models import Notification
 class Request(models.Model):
     space = models.ForeignKey(to=Space , on_delete=models.CASCADE)
     from_user = models.ForeignKey(to=User , on_delete=models.CASCADE)
-    state = models.CharField(choices=REQUEST_STATE)
+    state = models.CharField(choices=REQUEST_STATE , max_length=50)
     notif = GenericRelation(to=Notification)
 
     @property
